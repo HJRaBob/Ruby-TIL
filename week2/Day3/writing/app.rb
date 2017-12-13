@@ -19,3 +19,10 @@ get '/complete' do
     erb :complete
 end
 
+get '/posts' do
+    @posts =[]
+    CSV.foreach('write.csv',encoding: 'utf-8') do |row|
+        @posts << row
+    end
+    erb :posts
+end

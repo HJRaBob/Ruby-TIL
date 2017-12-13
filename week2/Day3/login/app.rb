@@ -13,8 +13,14 @@ get '/complete' do
     @name = params[:name]
     @email = params[:email]
     passwd = params[:passwd]
-    CSV.open("inform.csv","a+") do |data|
-        data << [@name ,@email, passwd]
+    passwd2 = params[:passwd2]
+
+    if passwd == passwd2
+        CSV.open("inform.csv","a+") do |data|
+            data << [@name ,@email, passwd]
+        end
+        erb :complete
+    else
+        redirect '/signup'
     end
-    erb :complete
 end

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>글 목록</title>
+</head>
+<body>
+    <h3>글 목록입니다</h3>
+    <% @posts.each do |item| %>
+      제목 : <%= item[0] %>
+      내용 : <%= item[1] %>
+      <br>
+    <% end %>
+</body>
+</html>
