@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <style>
+        p{
+            font-family : "courier"
+        }
+
+        h1 {
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <h1>환영합니다!!! 라밥 게시판 입니다</h1> <br>
+    <a href="/write"> <input type="button" value="글쓰기"> </a> <br>
+    <h3> 글 목록</h3> 
+    <hr>
+    <% @post.each do |item| %>
+        <p>
+            제목 : <%= item.title %> <br>
+            내용 : <%= item.content %> <br>
+            <%= item.created_at %>
+        </p>
+        <a href= <%= "/read/#{item.id}" %>><input type="button" value="읽기"></a> &nbsp;
+        <a href= <%= "/edit/#{item.id}" %>><input type="button" value="수정"></a> &nbsp;
+        <a href= <%= "/delet/#{item.id}" %>><input type="button" value="삭제"></a> &nbsp;
+        <hr>
+    <% end %>
+</body>
+</html>

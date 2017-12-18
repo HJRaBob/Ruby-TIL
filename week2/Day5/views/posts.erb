@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <style>
+        p {
+            font-family: "sans-serif"
+        }
+    </style>
+</head>
+
+<body>
+    <p> 글 번호 : <%= @posts.id %> </p>
+    <p> 글 제목 : <%= @posts.title %> </p>
+    <p> 글 내용 :<%= @posts.content %> </p>
+    <p> 저장 시간 : <%= @posts.created_at %> </p>    
+</body>
+</html>

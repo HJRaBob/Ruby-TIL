@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <style>
+        p {
+            font-family: "sans-serif"
+        }
+    </style>
+</head>
+<body>
+    <h2>라밥 게시판 입니다</h2>
+    <a href="/post">글 작성 하로 가기</a> <br>
+    <a href="/signup">회원 가입 하로 가기</a>
+    <hr>
+    <% @posts.each do |item| %>
+        <p> <%= item.id %> </p>
+        <p> <%= item.title %> </p>
+        <p> <%= item.content %> </p>
+        <p> <%= item.created_at %> </p>
+        <p> <a href= <%= "/welcome/#{item.id}" %> > 글 보로 가기 </a>
+        <a href= <%= "/edit/#{item.id}" %> > 글 수정 </a>
+        <a href= <%= "/delet/#{item.id}" %> > 글 삭제 </a> </p>
+    <% end %>
+</body>
+</html>
