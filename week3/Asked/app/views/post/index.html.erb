@@ -1,0 +1,31 @@
+<h1 style="text-align:center">무엇이든 물어보세요!!</h1>
+<a type="button" href="/new" class="btn btn-outline-success">글쓰기</a>
+<hr>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      <th scope="col">내용</th>
+      <th scope="col">작성일</th>
+      <th scope="col">보기</th>
+      <th scope="col">삭제</th>
+      <th scope="col">수정</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+        <th scope="row"><%= post.id %></th>
+        <td><%=post.username%></td>
+        <td><%=post.title%></td>
+        <td><%=post.content[0,9]%></td>
+        <td><%=post.created_at.to_s[5,6] %></td>
+        <td><a href="/show/<%=post.id%>" style = "color:#7FFFD4">보기</a></td>
+        <td><a href="/destroy/<%=post.id%>" data-method="delete" style = "color:Violet">삭제</a></td>
+        <td><a href="/edit/<%=post.id%>" style = "color:Aqua">수정</a></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
