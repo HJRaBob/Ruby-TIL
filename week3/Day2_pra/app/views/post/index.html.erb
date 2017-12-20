@@ -1,0 +1,14 @@
+<h1 style="text-align:center"> 라밥 게시판 </h1>
+<a href="/new">글쓰기</a>
+<hr>
+<% @posts.each do |item| %>
+    <p><%= item.id %></p>
+    <p><%= item.username %></p>
+    <p><%= item.title %></p>
+    <p><%= item.content %></p>
+    <p><%= item.created_at %></p>
+    <p>
+    <a href="/show/<%=item.id%>">보기</a> <a href="/destroy/<%=item.id%>">삭제</a> <a href="/edit/<%=item.id%>">수정</a>
+    </p>
+    <hr>
+<% end %>

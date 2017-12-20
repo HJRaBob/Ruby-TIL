@@ -1,0 +1,12 @@
+<h1 style="text-align:center"> 수정 </h1>
+<form action= <%="/update/#{@post.id}"%> >
+    <p>작성자 :</p>
+    <input value = <%="#{@post.username}"%> type="text" name="username">
+    <p>제목 :</p>
+    <input  value = <%="#{@post.title}"%> type="text" name="title">
+    <p>내용</p>
+    <textarea name="content" cols="30" rows="10"><%=@post.content%></textarea><br>
+    <input type="submit" value="저장">
+</form>
+
+
