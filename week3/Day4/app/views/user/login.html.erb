@@ -1,0 +1,12 @@
+<h3>로그인</h3>
+
+<form action="/user/login_process" method='post'>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">e-mail :</label>
+        <input type="email" name="email" class="form-control" placeholder="email@email.com">
+        <label for="exampleFormControlInput1">비밀번호 :</label>
+        <input type="password" name="password" class="form-control">
+    </div>
+    <input type="hidden" name="authenticity_token" value ="<%=form_authenticity_token%>">
+    <input type="submit" class="btn btn-outline-success" value="로그인">
+</form>

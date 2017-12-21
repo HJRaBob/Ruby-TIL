@@ -1,0 +1,46 @@
+<p style = "font-family:'Nanum Pen Script'; font-size:20px"><%=@post.created_at.to_s[5,6]%>:<%= @post.user.name %></p>
+<h1 style="text-align:center"><%=@post.title %></h1>
+<hr>
+<div class="alert alert-dark" role="alert">
+  <%= @post.content %>
+</div>
+<hr>
+<div class="form-group">
+    <form action="/comment/<%=@post.id%>" method='post'>    
+        <label for="exampleFormControlTextarea1">댓글 :</label>
+        <textarea name="content" class="form-control" rows="2"></textarea>
+        <input type="hidden" name="authenticity_token" value= "<%=form_authenticity_token%>" > <br>
+        <a type="button" href="/" class="btn btn-outline-success">홈으로</a> <input type="submit" value="댓글저장" class="btn btn-outline-success">
+    </form>
+</div>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">작성자</th>
+      <th scope="col">내용</th>
+      <th scope="col">삭제</th>
+      <th scope="col">작성일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post.comments.each_with_index do |item,i| %>
+        <tr>
+        <th scope="row"><%=i+1%></th>
+        <td><%=item.user.name %></td>
+        <td><%=item.comment %></td>
+        <% if current_user.nil?%>
+          <td style = "color:DarkOrchid">삭제</td>
+        <% else %>
+          <% if current_user.id != item.user_id %>
+            <td style = "color:DarkOrchid">삭제</td>
+          <% else %>
+            <td><a href="/de_comment/<%=item.id%>" data-method="delete" style="color:DarkOrchid" class="link_crud">삭제</a></td>
+          <% end %>
+        <% end %>
+        <td><%=item.created_at.to_s[5,6] %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

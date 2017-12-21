@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+#logout{
+    color:inherit;
+    text-align:right;
+    font-family:"Nanum Brush Script";
+    font-weight:bold;
+    font-size:20px;
+    text-decoration: none;
+}
+
+#logout:hover{
+    color:SlateBlue;
+}
+
+.link_crud:hover{
+    font-weight:bold;
+    text-decoration: none;
+}
