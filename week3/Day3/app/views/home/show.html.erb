@@ -1,0 +1,17 @@
+<p><%= @post.id %> : <%= @post.username %></p>
+<p><%= @post.created_at %></p>
+<h2 style="text-align:center" ><%= @post.title %></h2>
+<hr>
+<p><%= @post.content %></p>
+<a href="/"><button type="button" class="btn btn-outline-success">홈으로</button></a>
+<hr>
+<form action="/add_comment">
+    <input type="text" name="content" placeholder = "댓글을 입력해 주세요">
+    <input type="hidden" name="id" value = <%="#{@post.id}"%>>
+    <input type="submit" value="저장">
+</form>
+<hr>
+<% @post.comments.each_with_index do |item,idx| %>
+    <%= idx+1 %> : <%= item.content %>
+    <hr>
+<% end %>

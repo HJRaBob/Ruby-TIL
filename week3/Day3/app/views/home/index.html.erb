@@ -1,0 +1,32 @@
+<h1 style = "text-align:center"> 라밥 게시판 </h1>
+
+<a href="/new"><button type="button" class="btn btn-outline-success">글쓰기</button></a>
+<hr>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      <th scope="col">내용</th>
+      <th scope="col">작성 시간</th>
+      <th scope="col">보기</th>
+      <th scope="col">삭제</th>
+      <th scope="col">수정</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.id %></td>
+            <td><%= post.username %></td>
+            <td><%= post.title %></td>
+            <td><%= post.content%></td>
+            <td><%= post.created_at.to_s[5,15] %></td>
+            <td><a href="/show/<%=post.id%>" style = "color:#7FFFD4">보기</a></td>
+            <td><a data-confirm="지울거니?" data-method="delete" href="/destroy/<%=post.id%>" style = "color:Violet">삭제</a></td>
+            <td><a href="/edit/<%=post.id%>" style = "color:Aqua">수정</a></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

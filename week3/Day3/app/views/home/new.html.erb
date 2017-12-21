@@ -1,0 +1,15 @@
+<h1 style = "text-align:center"> 글 작성 </h1>
+
+<form action="/new/complete" method="post">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">유저 이름</label>
+        <input name="username" type="text" class="form-control" placeholder="이름">
+        <label for="exampleFormControlInput1">제목</label>
+        <input name="title" type="text" class="form-control" placeholder="글 제목">
+        <label for="exampleFormControlTextarea1">내용</label>
+        <textarea name="content" class="form-control" rows="5"></textarea>
+        <br>
+        <input type="submit" value="저장" class="btn btn-outline-success">
+        <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
+    </div>
+</form>
