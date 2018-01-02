@@ -1,0 +1,6 @@
+<form action="/boards" method='POST'>
+    제목 : <input type="text" name="title" class ='form-control'> <br>
+    내용 : <br><textarea name="contents" cols="45" rows="15" class ='form-control'></textarea><br>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+    <input type="submit" value="저장" class="btn btn-success">
+</form>
